@@ -15,6 +15,7 @@ public class Point {
     private boolean res;
 
     public String jsonPoint(){
+        System.out.println(JSONUtil.toJSON(this.getPoint()));
         return JSONUtil.toJSON(this.getPoint());
     }
 

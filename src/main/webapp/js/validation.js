@@ -23,7 +23,7 @@ function validateForm(permission) {
 
 function validateY(field) {
     if (!(field.trim() === "")) {
-        if (/^(0$|-?[1-9]\d*(\.\d*[1-9]$)?|-?0\.\d*[1-9])$/.test(field)) {
+        if (/^(0$|-?[0-9]\d*(\.\d*[0-9]$)?|-?0\.\d*[0-9])$/.test(field)) {
             if ((parseInt(field) > -3) && (parseInt(field) < 5)) {
                 return "";
             } else return "Координата Y задается в промежутке от -3 до 3!\n";
@@ -34,7 +34,7 @@ function validateY(field) {
 
 function validateX(field) {
     if (!(field.trim() === "")) {
-        if (/^(0$|-?[1-9]\d*(\.\d*[1-9]$)?|-?0\.\d*[1-9])$/.test(field)) {
+        if (/^(0$|-?[0-9]\d*(\.\d*[0-9]$)?|-?0\.\d*[0-9])$/.test(field)) {
             if ((parseInt(field) > -3) && (parseInt(field) < 3)) {
                 return "";
             } else return "Координата X задается в промежутке от -3 до 5!\n"

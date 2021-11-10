@@ -1,7 +1,7 @@
 function drawDots(x, y, r, result) {
     let svg = document.querySelector(".svg_container");
     let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle');
-    (result === true)
+    (result === "true")
         ? circle.style.fill = "red"
         : circle.style.fill = "#302929";
     circle.style.r = 5;

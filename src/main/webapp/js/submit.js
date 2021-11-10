@@ -24,6 +24,12 @@ function receiveDots(x, y, r) {
         type: "GET",
         data: {'y': y, 'x': x, 'r': r},
         success: function (response) {
+            console.log(response.x);
+            console.log(response.y);
+            console.log(response.r);
+            console.log(response.currentTime);
+            console.log(response.executionTime);
+            console.log(response.result)
             drawDots(response.x, response.y, response.r, response.result);
             addBean(response.x, response.y, response.r, response.currentTime, response.executionTime, response.result);
         }
