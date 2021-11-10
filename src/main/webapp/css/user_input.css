@@ -1,0 +1,91 @@
+.section-lab svg {
+    stroke: rgba(175, 175, 175, 0.92);
+    fill: white;
+    position: absolute;
+    left: 500px;
+    top: 150px;
+}
+
+.section-lab .form {
+    position: absolute;
+    top: 150px;
+    left: 900px;
+    width: 500px;
+    height: 350px;
+    box-shadow: 0 0 10px 5px rgba(221, 221, 221, 1);
+    background: rgb(144, 144, 144);
+    border-radius: 20px 20px 20px 20px;
+}
+
+.section-lab .y_value {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    margin: 5% 0 0;
+}
+.section-lab .y_value #Y_value{
+    width: 200px;
+    height: 15px;
+}
+
+.section-lab .x_value {
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    margin: 5% 0 0;
+}
+
+.section-lab .x_value #X_value{
+    width: 200px;
+    height: 15px;
+}
+
+.section-lab .r_value{
+    position: absolute;
+    top:200px;
+    left:100px;
+    margin: 5% 0 0;
+}
+
+.section-lab .r_value #R_value{
+    width: 209px;
+    height: 20px;
+}
+
+.section-lab .text-select-coordinate{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(240,240,240);
+}
+
+.section-lab .client-button{
+    position: absolute;
+    left: 140px;
+    top: 270px;
+}
+
+.section-lab .client-button .client-button-submit,.client-button-clear{
+    background: lightgrey;
+    width: 100px;
+    height: 35px;
+    border-radius: 10px;
+}
+
+.section-lab .client-button-clear:hover{
+    color: green;
+}
+
+.section-lab .client-button-submit:hover{
+    color: green;
+}
+
+.section-lab .Error_text{
+    margin: 15px;
+    position: relative;
+    top: 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: red;
+    font-size: 20px;
+}
