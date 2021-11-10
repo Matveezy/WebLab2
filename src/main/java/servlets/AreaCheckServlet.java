@@ -21,11 +21,11 @@ public class AreaCheckServlet extends HttpServlet {
         Point point = new Point();
 
         try {
-            double x = Double.parseDouble(req.getParameter("X_value"));
-            double y = Double.parseDouble(req.getParameter("Y_value"));
-            double r = Double.parseDouble(req.getParameter("R_value"));
+            double x = Double.parseDouble(req.getParameter("x"));
+            double y = Double.parseDouble(req.getParameter("y"));
+            double r = Double.parseDouble(req.getParameter("r"));
 
-            if (x <= -3 || x >= 3 || y <= -3 || y >= 5 || r <= 1 || r >= 3) {
+            if (x <= -3 || x >= 3 || y <= -3 || y >= 5 || r < 1 || r > 3) {
                 resp.setStatus(422);
                 return;
             }
@@ -62,11 +62,12 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private boolean isHitTriangle(double x, double y, double r) {
-        return ((y <= -(1.0 / 2.0) * x - (r / 2.0)) && (x >= 0 && y >= 0));
+        return ((y <= (-1.0 / 2.0) * x + (r / 2.0)) && (x >= 0 && y >= 0));
     }
 
     private boolean isHitRectangle(double x, double y, double r) {
-        return ((y <= -(r) && y <= 0) && (x >= -(r) && x <= 0));
+        System.out.println(((y >= -r && y <= 0) && (x >= -r && x <= 0)) + " isHitRectangle");
+        return ((y >= -r && y <= 0) && (x >= -r && x <= 0));
     }
 
 }

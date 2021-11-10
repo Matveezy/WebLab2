@@ -10,11 +10,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web2</title>
-<%--    <link rel="stylesheet" href="WEB-INF/css/body.css">--%>
-<%--    <link rel="stylesheet" href="WEB-INF/css/header.css">--%>
-<%--    <link rel="stylesheet" href="WEB-INF/css/user_input.css">--%>
-<%--    <script src="WEB-INF/js/jquery-3.6.0.js"></script>--%>
-<%--    <script src="WEB-INF/js/validation.js"></script>--%>
+
+    <%--    <script src="js/jquery-3.6.0.js"></script>--%>
+    <%--    <script src="js/validation.js"></script>--%>
+    <%--    <script src="js/submit.js"></script>--%>
+    <%--    <script src="js/points.js"></script>--%>
+    <%--    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/body.css">--%>
+    <%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">--%>
+    <%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user_input.css">--%>
+    <%--    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table_section.css">--%>
 
 </head>
 <body>
@@ -32,7 +36,7 @@
     </header>
 
     <section class="section-lab">
-        <svg class="svg_container" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+        <svg class="svg_container" id="svg_cont" width="300" height="300" xmlns="http://www.w3.org/2000/svg">
             <!-- Оси координат -->
             <line x1="0" x2="300" y1="150" y2="150"></line>
             <line x1="150" x2="150" y1="0" y2="300"></line>
@@ -74,9 +78,9 @@
 
             <%
                 List<Point> pointList = TablePoint.getInstance().getPoints();
-                for (Point nextPoint : pointList){
+                for (Point nextPoint : pointList) {
                     double coordinateX = (nextPoint.getX() * 100 / nextPoint.getR()) + 150;
-                    double coordinateY = (nextPoint.getX() * 100 / nextPoint.getR()) + 150;
+                    double coordinateY = -(nextPoint.getY() * 100 / nextPoint.getR()) + 150;
                     String color = (nextPoint.isRes()) ? "red" : "#302929";
 
                     out.println("<circle fill=\"" + color + "\" cx=\"" + coordinateX + "\" cy=\"" + coordinateY + "\"  r=\"5\"></circle>");
@@ -84,42 +88,43 @@
             %>
         </svg>
 
-        <form class="mainform" id="form" onsubmit="test(); return false;"></form>
-        <div class="form" >
-            <p class="text-select-coordinate">Select your coordinates!</p>
-            <div class="values">
-                <div class="y_value">
-                    <label for="Y_value">Y value:</label>
-                    <input type="text" maxlength="16" id="Y_value" name="Y_value" placeholder="Enter coordinate Y">
+        <form class="mainform" id="form" onsubmit="return false;">
+            <div class="form">
+                <p class="text-select-coordinate">Select your coordinates!</p>
+                <div class="values">
+                    <div class="y_value">
+                        <label for="Y_value">Y value:</label>
+                        <input type="text" maxlength="16" id="Y_value" name="Y_value" placeholder="Enter coordinate Y">
+                    </div>
+                    <div class="x_value">
+                        <label for="X_value"> X value:</label>
+                        <input type="text" maxlength="16" id="X_value" name="X_value" placeholder="Enter coordinate X">
+                    </div>
+                    <div class="r_value">
+                        <label for="R_value">R value:</label>
+                        <select name="R_value" id="R_value" size="1">
+                            <option disabled selected="Select R">Select coordinate R</option>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="x_value">
-                    <label for="X_value"> X value:</label>
-                    <input type="text" maxlength="16" id="X_value" name="X_value" placeholder="Enter coordinate X">
-                </div>
-                <div class="r_value">
-                    <label for="R_value">R value:</label>
-                    <select name="R_value" id="R_value" size="1">
-                        <option disabled selected="Select R">Select coordinate R</option>
-                        <option value="1">1</option>
-                        <option value="1.5">1.5</option>
-                        <option value="2">2</option>
-                        <option value="2.5">2.5</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-            </div>
 
-            <div class="Error_text">
-                <span id="Y_error"></span>
-                <span id="X_error"></span>
-                <span id="R_error"></span>
-            </div>
+                <div class="Error_text">
+                    <span id="Y_error"></span>
+                    <span id="X_error"></span>
+                    <span id="R_error"></span>
+                </div>
 
-            <div class="client-button">
-                <input class="client-button-submit" type="submit" value="Submit">
-                <input class="client-button-clear" type="reset" value="Clear">
+                <div class="client-button">
+                    <input class="client-button-submit" type="submit" value="Submit">
+                    <input class="client-button-clear" type="reset" value="Clear">
+                </div>
             </div>
-        </div>
+        </form>
     </section>
 </main>
 
@@ -128,8 +133,9 @@
         <input type="button" id="button_clean" value="clean table" onclick="">
     </div>
 
-<div>
-    <table id="table">
+    <div>
+
+        <table id="table">
         <thead>
         <tr>
             <th>X</th>
@@ -142,30 +148,32 @@
         </thead>
         <tbody>
         <%
-            for (Point nextPoint :pointList){
+            for (Point nextPoint : pointList) {
                 out.println("<tr>");
-                out.println(nextPoint.getX());
-                out.println(nextPoint.getY());
-                out.println(nextPoint.getR());
-                out.println(nextPoint.getCurrentTime());
-                out.println(nextPoint.getExTime());
+                out.println("<th>" + nextPoint.getX() + "</th>");
+                out.println("<th>" + nextPoint.getY() + "</th>");
+                out.println("<th>" + nextPoint.getR() + "</th>");
+                out.println("<th>" + nextPoint.getCurrentTime() + "</th>");
+                out.println("<th>" + nextPoint.getExTime() + "</th>");
                 String color = (nextPoint.isRes()) ? "#0fc40f" : "red";
-                out.println("<td style=\"color: " + color + "\">" + nextPoint.isRes() + "</td>");
+                out.println("<th style=\"color: " + color + "\">" + nextPoint.isRes() + "</th>");
                 out.println("</tr>");
             }
-
         %>
         </tbody>
-    </table>
-</div>
+        </table>
+    </div>
 </section>
-<script src="js/validation.js"></script>
+
 <script src="js/jquery-3.6.0.js"></script>
-<script src="js/points.js"></script>
+<script src="js/validation.js"></script>
 <script src="js/submit.js"></script>
+<script src="js/points.js"></script>
+<script src="js/dots.js"></script>
+<script src="js/click.js"></script>
+<script src="js/table.js"></script>
 
-
-<link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/body.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/body.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/header.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/user_input.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/table_section.css">

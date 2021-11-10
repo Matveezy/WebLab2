@@ -48,10 +48,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
             <groupId>org.kopitubruk.util</groupId>
             <artifactId>JSONUtil</artifactId>
-            <version>1.10.4-java7</version>
-            <scope>provided</scope>
+            <version>1.10.2</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
