@@ -1,11 +1,4 @@
 function addBean(x, y, r, currentTime, executionTime, result) {
-    console.log("Addbean fun")
-    console.log(x + "x");
-    console.log(y + "y");
-    console.log(r + "r")
-    console.log(currentTime + "curtime");
-    console.log(executionTime + "exTime");
-    console.log(result + "resolt")
     let newElement = "<tr>";
     newElement += "<th>" + x + "</th>";
     newElement += "<th>" + y + "</th>";

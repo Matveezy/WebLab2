@@ -58,7 +58,7 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private boolean isHitCircle(double x, double y, double r) {
-        return ((x * x + y * y <= r / 4.0) && (x <= 0 && y >= 0));
+        return ((x * x + y * y <= r * r / 4.0) && (x <= 0 && y >= 0));
     }
 
     private boolean isHitTriangle(double x, double y, double r) {
@@ -66,7 +66,6 @@ public class AreaCheckServlet extends HttpServlet {
     }
 
     private boolean isHitRectangle(double x, double y, double r) {
-        System.out.println(((y >= -r && y <= 0) && (x >= -r && x <= 0)) + " isHitRectangle");
         return ((y >= -r && y <= 0) && (x >= -r && x <= 0));
     }
 

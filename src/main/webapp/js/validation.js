@@ -9,11 +9,6 @@ function validateForm(permission) {
     info += "<span>" + validateY(Y_value) + "</span>";
     info += "<span>" + validateX(X_value) + "</span>";
     info += "<span>" + validateR(R_value) + "</span>";
-    // info += "<span id=\"Y_error\">" + validateY(Y_value) + "</span>";
-    // info += "<span id=\"X_error\">" + validateX(X_value) + "</span>";
-    // info += "<span id=\"R_error\">" + validateR(R_value) + "</span>";
-    // console.log(document.getElementById('R_error'))
-    // console.log(document.getElementById('X_error'))
 
     if (permission) {
         document.getElementById("Error_text").innerHTML = info;
@@ -36,7 +31,7 @@ function validateY(field) {
         if (/^(0$|-?[0-9]\d*(\.\d*[0-9]$)?|-?0\.\d*[0-9])$/.test(field)) {
             if ((parseInt(field) > -3) && (parseInt(field) < 5)) {
                 return "";
-            } else return "Координата Y задается в промежутке от -3 до 3!\n";
+            } else return "Координата Y задается в промежутке от -2 до 4!\n";
         } else return "Координата Y задается числом!\n"
     } else return "Не введена координата Y!\n"
 
@@ -47,8 +42,8 @@ function validateX(field) {
         if (/^(0$|-?[0-9]\d*(\.\d*[0-9]$)?|-?0\.\d*[0-9])$/.test(field)) {
             if ((parseInt(field) > -3) && (parseInt(field) < 3)) {
                 return "";
-            } else return "Координата X задается в промежутке от -3 до 5!\n"
-        } else return "Координата Х задается число!\n"
+            } else return "Координата X задается в промежутке от -2 до 2!\n"
+        } else return "Координата Х задается числом!\n"
     } else return "Не введена координата X!\n"
 }
 

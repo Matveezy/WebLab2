@@ -9,25 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class ControllerServlet extends HttpServlet {
-//    private final TablePoint tablePoint = new TablePoint();
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        resp.setContentType("text/html");
-//        req.setAttribute("table",tablePoint);
+
         String x = req.getParameter("x");
         String y = req.getParameter("y");
         String r = req.getParameter("r");
-//        req.setAttribute("X",x);
-//        req.setAttribute("Y",y);
-//        req.setAttribute("R",r);
-
-        System.out.println(x);
-        System.out.println(y);
-        System.out.println(r);
-//        Double x= Double.parseDouble(req.getParameter("X_value"));
-//        Double y=Double.parseDouble("Y_value");
-//        Double r=Double.parseDouble("R_value");
 
         if ((x != null && y != null && r != null) && (!x.trim().equals("") && !y.trim().equals("") && !r.trim().equals(""))) {
             req.getRequestDispatcher("./check").forward(req, resp);
@@ -37,16 +26,6 @@ public class ControllerServlet extends HttpServlet {
         }
 
     }
-
-
-//
-//    final boolean validate(Double x, Double y, Double r) {
-//
-//    }
-//
-//    final boolean checkX(Double x){
-//
-//    }
 }
 
 

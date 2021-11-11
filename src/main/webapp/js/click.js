@@ -1,17 +1,12 @@
 document.getElementById('svg_cont').addEventListener("click", function (event) {
-    // getCoordinates(event);
     checkClick(event);
 })
 
 function getCoordinates(event) {
     let xCoor = event.pageX;
     let yCoor = event.pageY;
-    console.log(xCoor);
-    console.log(yCoor);
 }
 
-
-console.log(document.getElementById('svg_cont'));
 
 function checkClick(event) {
 
@@ -20,10 +15,6 @@ function checkClick(event) {
     let rError = document.getElementById('R_error');
     let yError = document.getElementById('Y_error');
     let xError = document.getElementById('X_error');
-    console.log(xError);
-    console.log(yError);
-    // xError.innerHTML = "";
-    // yError.innerHTML = "";
     if (validateR(r) !== "Введите координату R") {
         let coordinateX = event.pageX - 501;
         let coordinateY = event.pageY - 152;

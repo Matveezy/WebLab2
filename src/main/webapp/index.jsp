@@ -129,9 +129,6 @@
 </main>
 
 <section class="table_section">
-    <div id="cleaner">
-        <input type="button" id="button_clean" value="clean table" onclick="">
-    </div>
 
     <div>
 
@@ -168,7 +165,6 @@
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/validation.js"></script>
 <script src="js/submit.js"></script>
-<script src="js/points.js"></script>
 <script src="js/dots.js"></script>
 <script src="js/click.js"></script>
 <script src="js/table.js"></script>
