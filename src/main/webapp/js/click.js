@@ -22,22 +22,14 @@ function checkClick(event) {
     let xError = document.getElementById('X_error');
     console.log(xError);
     console.log(yError);
-    xError.innerHTML = "";
-    yError.innerHTML = "";
+    // xError.innerHTML = "";
+    // yError.innerHTML = "";
     if (validateR(r) !== "Введите координату R") {
         let coordinateX = event.pageX - 501;
         let coordinateY = event.pageY - 152;
         let x = (r * (coordinateX - 150) / 100);
         let y = (r * (150 - coordinateY) / 100);
         if (checkXY(x, y)) {
-            //
-            //         let info = "";
-            //         info += "<span>" + validateY(Y_value) + "</span>";
-            //         info += "<span>" + validateX(X_value) + "</span>";
-            //         info += "<span>" + validateR(R_value) + "</span>";
-            //
-            //             $('.Error_text').html(info);
-
             receiveDots(x, y, r);
         }
     }

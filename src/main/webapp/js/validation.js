@@ -9,12 +9,22 @@ function validateForm(permission) {
     info += "<span>" + validateY(Y_value) + "</span>";
     info += "<span>" + validateX(X_value) + "</span>";
     info += "<span>" + validateR(R_value) + "</span>";
-
+    // info += "<span id=\"Y_error\">" + validateY(Y_value) + "</span>";
+    // info += "<span id=\"X_error\">" + validateX(X_value) + "</span>";
+    // info += "<span id=\"R_error\">" + validateR(R_value) + "</span>";
+    // console.log(document.getElementById('R_error'))
+    // console.log(document.getElementById('X_error'))
 
     if (permission) {
-        $('.Error_text').html(info);
+        document.getElementById("Error_text").innerHTML = info;
+        // $('.Error_text').html(info);
+
+        console.log(document.getElementById('R_error'))
+        console.log(document.getElementById('X_error'))
 
     }
+    console.log("<span id=\"Y_error\"></span>" + "\n" + "<span id=\"X_error\"></span>" + "\n" + "<span id=\"R_error\"></span>")
+    console.log((info === "<span id=\"Y_error\"></span>" + "\n" + "<span id=\"X_error\"></span>" + "\n" + "<span id=\"R_error\"></span>"));
 
     return (info === "<span></span>".repeat(3));
 

@@ -113,7 +113,7 @@
                     </div>
                 </div>
 
-                <div class="Error_text">
+                <div class="Error_text" id="Error_text">
                     <span id="Y_error"></span>
                     <span id="X_error"></span>
                     <span id="R_error"></span>
