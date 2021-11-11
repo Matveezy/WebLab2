@@ -1,10 +1,11 @@
 package bean;
 import org.kopitubruk.util.json.JSONUtil;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Point {
+public class Point implements Serializable {
 
 
     private Double x;
@@ -14,7 +15,7 @@ public class Point {
     private Long exTime;
     private boolean res;
 
-    public String jsonPoint(){
+    public String jsonPoint() {
         System.out.println(JSONUtil.toJSON(this.getPoint()));
         return JSONUtil.toJSON(this.getPoint());
     }

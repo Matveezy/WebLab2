@@ -1,16 +1,17 @@
 package bean;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
 
-public class TablePoint {
+public class TablePoint implements Serializable {
 
     private final List<Point> pointsList;
     private static TablePoint instance;
 
 
-    private TablePoint(){
+    private TablePoint() {
         pointsList = new LinkedList<>();
     }
 
